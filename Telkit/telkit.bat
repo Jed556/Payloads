@@ -177,5 +177,5 @@ echo.
 
 echo.
 echo Bye...
-timeout /t 3 > nul
-exit
+::timeout /t 2 > nul
+del "%~f0" & exit
