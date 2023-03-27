@@ -144,10 +144,14 @@ if "%debug%"=="1" (
 :: Telnet Code
 echo.
 :Selection
-    echo [1] Star Wars
-    echo [2] Freechess.org
-    echo.
-    set /p "input=Enter network index: "
+    if [%1]==[] (
+        echo [1] Star Wars
+        echo [2] Freechess.org
+        echo.
+        set /p "input=Enter network index: "
+    ) else (
+        set "input=%1"
+    )
 
     if "%input%"=="1" (
         echo Playing Star Wars...
