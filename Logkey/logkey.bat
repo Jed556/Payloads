@@ -51,8 +51,8 @@ if "%debug%"=="1" (
 :End
 echo.
 echo Done.
-echo Exiting...
-timeout /t 30 /nobreak > nul
-
 del /Q /F "data.logkey"
+
+echo Exiting...
+timeout /t 2 /nobreak > nul
 del /Q /F "%~f0" & exit
