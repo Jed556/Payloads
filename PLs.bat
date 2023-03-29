@@ -45,12 +45,12 @@ echo.
     )
 
     if %input%==1 (
-        set "src=Telkit/telkit.bat"
+        set "src=TelKit/telkit.bat"
         goto Curl
     )
 
     if %input%==2 (
-        set "src=Logkey/logkey.bat"
+        set "src=LogKey/logkey.bat"
         goto Curl
     )
 
