@@ -6,6 +6,12 @@ set "debug=0"
 set "dataURL=raw.githubusercontent.com/Jed556/Payloads/main/Logkey/data.logkey"
 set "fileName=data.logkey"
 
+:: Check for debug flag
+if "%1"=="1" (
+    set "debug=1"
+    shift
+)
+
 :: Get data from file
 echo.
 echo Getting data from server...
@@ -46,6 +52,7 @@ endlocal & set "keys=%keys%"
 :: Check variables
 if "%debug%"=="1" (
     echo.
+    echo [DEBUG] Path: %~dp0
     echo [DEBUG] Data: %data%
     echo [DEBUG] Keys: %keys%
 )
