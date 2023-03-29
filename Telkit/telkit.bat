@@ -8,9 +8,19 @@ set "tempFile=TelnetStatus"
 :: Start minimized
 if NOT DEFINED IS_MINIMIZED (set IS_MINIMIZED=1 & start "" /min "%~f0" %* && exit)
 
+:: Art
+cls
+echo.
+echo. [33m"|     [1;36m /#######  /##      [0m                                                  [33m|"[0m
+echo. [33m"|     [1;36m| ##__  ##| ##      [0m                                                  [33m|"[0m
+echo. [33m"|     [1;36m| ##  \ ##| ##      [0m           [1;37mPayloads[0m by Jed556[0m                     [33m|"[0m
+echo. [33m"|     [1;36m| #######/| ##      [0m           [4mGitHub.com/Jed556/Payloads[0m             [33m|"[0m
+echo. [33m"|     [1;36m| ##____/ | ##      [0m                                                  [33m|"[0m
+echo. [33m"|     [1;36m| ##      | ########[0m                                                  [33m|"[0m
+echo. [33m"|     [1;36m|__/      |________/[0m                                                  [33m|"[0m
+
 :: Header
 :Header
-    CLS
     echo.
     echo Running admin shell...
 
