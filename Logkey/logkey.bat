@@ -3,10 +3,13 @@ title Payloads: Logger
 
 :: Config variables
 set "debug=0"
-
+set "dataURL=raw.githubusercontent.com/Jed556/Payloads/main/Logkey/data.logkey"
+set "fileName=data.logkey"
 
 :: Get data from file
-curl -Lo data.logkey https://raw.githubusercontent.com/Jed556/Payloads/main/Logkey/data.logkey
+echo.
+echo Getting data from server...
+curl -Lso %fileName% %dataURL%
 setlocal EnableDelayedExpansion EnableExtensions
 set "data="
 for /f "delims=" %%i in (data.logkey) do (
@@ -51,7 +54,7 @@ if "%debug%"=="1" (
 :End
 echo.
 echo Done.
-del /Q /F "data.logkey"
+del /Q /F %fileName%
 
 echo Exiting...
 timeout /t 2 /nobreak > nul
