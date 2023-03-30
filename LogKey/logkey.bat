@@ -4,13 +4,28 @@ title PLs: LogKey
 :: Config variables
 set "debug=0"
 set "dataURL=raw.githubusercontent.com/Jed556/Payloads/main/LogKey/data.logkey"
-set "fileName=data.logkey"
+set "fileName="
 set "idLength=8"
 
-:: Check for debug flag
+:: Check for arguments
 if "%1"=="1" (
     set "debug=1"
-    shift
+)
+
+if NOT [%2]==[] (
+    set "idLength=%2"
+)
+
+if NOT [%3]==[] (
+    set "dataURL=%3"
+)
+
+if NOT [%4]==[] (
+    set "fileName=%4"
+)
+
+if "%fileName%"=="" (
+    for %%i in ("%dataURL%") do set "fileName=%%~nxi"
 )
 
 :: Art
