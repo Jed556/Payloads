@@ -68,6 +68,7 @@ endlocal
         echo [1;37m[1][0m TelKit
         echo [1;37m[2][0m LogKey
         echo [1;37m[3][0m GitHub ^(Docs^)
+        echo [1;37m[4][0m Exit
         echo.
         set /p "input=Enter payload index: "
     ) else (
@@ -79,7 +80,12 @@ endlocal
         start https://GitHub.com/Jed556/Payloads
         echo [1;32mOpened GitHub[0m
         timeout /t 30
-        goto Art
+        goto :Art
+    )
+
+    if %input%==4 (
+        echo Exiting...
+        goto :End
     )
 
     if %input%==1 (
