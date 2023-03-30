@@ -3,8 +3,9 @@ title PLs: LogKey
 
 :: Config variables
 set "debug=0"
-set "dataURL=raw.githubusercontent.com/Jed556/Payloads/main/Logkey/data.logkey"
+set "dataURL=raw.githubusercontent.com/Jed556/Payloads/main/LogKey/data.logkey"
 set "fileName=data.logkey"
+set "idLength=8"
 
 :: Check for debug flag
 if "%1"=="1" (
@@ -45,14 +46,15 @@ echo.
 
 :: Loop through the input
 echo Typing...
+set /a "idEnd=%idLength%-1"
 setlocal EnableDelayedExpansion
 set "keys="
 for %%a in (%data%) do (
     :: Setup variables
     set "token=%%a"
-    set "key=!token:~0,7!"
+    set "key=!token:~0,%idEnd%!"
     set "keyIn=!key!{ENTER}"
-    set "name=!token:~8!"
+    set "name=!token:~%idLength%!"
     set name=!name:_= !
     set "keys=!keys!!keyIn!"
 
@@ -78,5 +80,4 @@ del /Q /F %fileName%
 
 echo Exiting...
 timeout /t 2 /nobreak > nul
-exit
 del /Q /F "%~f0" & exit
