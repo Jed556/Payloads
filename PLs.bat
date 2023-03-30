@@ -16,7 +16,7 @@ set "prefix=https://raw.githubusercontent.com/Jed556/Payloads/main/"
 :: ------------------------- GET VERSION INFO ------------------------
 
 if "%version%"=="" (
-    curl -Lo v.pls %prefix%VERSION
+    curl -Lso v.pls %prefix%VERSION
     set /p version=<v.pls
     del /Q /F v.pls
 )
@@ -131,3 +131,4 @@ endlocal
     del /Q /F "%~f0" & exit
 
 :: -------------------------------------------------------------------
+

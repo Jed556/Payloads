@@ -15,7 +15,7 @@ set "idLength=8"
 :: ------------------------- GET VERSION INFO ------------------------
 
 if "%version%"=="" (
-    curl -Lo v.pls %prefix%VERSION
+    curl -Lso v.pls %prefix%VERSION
     set /p version=<v.pls
     del /Q /F v.pls
 )
