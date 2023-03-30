@@ -1,32 +1,59 @@
 @echo off
 title PLs: TelKit
 
-:: Config variables
+:: Start minimized
+if NOT DEFINED IS_MINIMIZED (set IS_MINIMIZED=1 & start "" /min "%~f0" %* && exit)
+
+:: --------------------- CONFIGURATION VARIABLES ---------------------
+
+set "version=v0.7.5"
 set "debug=0"
 set "tempFolder=%temp%"
 set "tempFile=TelnetStatus"
 
-:: Start minimized
-if NOT DEFINED IS_MINIMIZED (set IS_MINIMIZED=1 & start "" /min "%~f0" %* && exit)
+:: -------------------------------------------------------------------
 
-:: Art
+
+:: ------------------------------- ART -------------------------------
+
+setlocal enabledelayedexpansion
+set "s=!version!"
+set "len=0"
+for /l %%i in (0,1,8192) do (
+  set "c=!s:~%%i,1!"
+  if not defined c goto :done
+  set /a "len+=1"
+)
+:done
+
+set /a length=31-len
+
+set padding=
+for /l %%i in (1,1,%length%) do set padding=!padding! 
+
+:: Display art
+:Art
 cls
 echo.
-echo. [0;34m"|     [1;36m /#######  /##                     [0m                                          [0;34m|"[0m
-echo. [0;34m"|     [1;36m| ##__  ##| ## [0;36m  /#######  [0m                                                  [0;34m|"[0m
-echo. [0;34m"|     [1;36m| ##  \ ##| ## [0;36m /##_____/  [0m        [1;37mPayloads[0m by Jed556[0m                        [0;34m|"[0m
-echo. [0;34m"|     [1;36m| #######/| ## [0;36m |  ######  [0m        [4mGitHub.com/Jed556/Payloads[0m                [0;34m|"[0m
-echo. [0;34m"|     [1;36m| ##____/ | ## [0;36m  \____  ## [0m        [1;32mActive[0m : TelKit[0m                           [0;34m|"[0m
-echo. [0;34m"|     [1;36m| ## [0;36m /#################/  [0m                                                  [0;34m|"[0m
-echo. [0;34m"|     [1;36m|__/ [0;36m/_________________/   [0m                                                  [0;34m|"[0m
+echo. [0;34m^|     [1;36m /#######  /##                     [0m                                          [0;34m^|[0m
+echo. [0;34m^|     [1;36m^| ##__  ##^| ## [0;36m  /#######  [0m                                                  [0;34m^|[0m
+echo. [0;34m^|     [1;36m^| ##  \ ##^| ## [0;36m /##_____/  [0m        [1;37mPayloads[0m (%version%)!padding![0m[0;34m^|[0m
+echo. [0;34m^|     [1;36m^| #######/^| ## [0;36m ^|  ######  [0m        [4mGitHub.com/Jed556/Payloads[0m                [0;34m^|[0m
+echo. [0;34m^|     [1;36m^| ##____/ ^| ## [0;36m  \____  ## [0m        [1;32mActive[0m : TelKit[0m                           [0;34m^|[0m
+echo. [0;34m^|     [1;36m^| ## [0;36m /#################/  [0m                                                  [0;34m^|[0m
+echo. [0;34m^|     [1;36m^|__/ [0;36m/_________________/   [0m                                                  [0;34m^|[0m
+echo.
+pause
+
+endlocal
+
+:: -------------------------------------------------------------------
 
 
-:: Header
-:Header
-    echo.
-    echo Running admin shell...
+:: ------------------- CHECK FOR ADMIN PERMISSIONS -------------------
 
-::------------------- Check for Admin Permissions -------------------
+echo.
+echo Running admin shell...
 
 :init
     setlocal DisableDelayedExpansion
@@ -69,13 +96,12 @@ echo. [0;34m"|     [1;36m|__/ [0;36m/_________________/   [0m               
     setlocal & cd /d %~dp0
     if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
 
-::-------------------------------------------------------------------
+:: -------------------------------------------------------------------
 
 
-::---------------------------- Main Code ----------------------------
+:: ---------------------------- MAIN CODE ----------------------------
+
 setlocal EnableExtensions
-:: Debug input
-::echo %batchName% Arguments: P1=%1 P2=%2 P3=%3 P4=%4 P5=%5 P6=%6 P7=%7 P8=%8 P9=%9
 
 :: Get the path to the Windows temp folder and status file
 if not defined tempFolder set "tempFolder=%windir%\Temp" else if "%tempFolder%"=="" set "tempFolder=%windir%\Temp"
@@ -189,9 +215,10 @@ echo.
         echo Done.
     )
 
-::-------------------------------------------------------------------
-
+:: Exit
 echo.
 echo Bye...
-::timeout /t 2 > nul
+timeout /t 2 > nul
 del "%~f0" & exit
+
+:: -------------------------------------------------------------------
