@@ -43,7 +43,8 @@ if "%fileName%"=="" (
 
 :: ------------------------------- ART -------------------------------
 
-setlocal enabledelayedexpansion
+:Art
+setlocal EnableDelayedExpansion
 set "s=!version!"
 set "len=0"
 for /l %%i in (0,1,8192) do (
@@ -59,7 +60,6 @@ set padding=
 for /l %%i in (1,1,%length%) do set padding=!padding! 
 
 :: Display art
-:Art
 cls
 echo.
 echo. [0;34m^|     [1;36m /#######  /##                     [0m                                          [0;34m^|[0m
