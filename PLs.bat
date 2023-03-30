@@ -3,12 +3,23 @@ title Payloads
 
 :: --------------------- CONFIGURATION VARIABLES ---------------------
 
-set "version=v0.7.5"
+set "version="
 set "debug=0"
 set "folder=%temp%"
 set "file=r.bat"
 set "dir=%folder%/%file%"
 set "prefix=https://raw.githubusercontent.com/Jed556/Payloads/main/"
+
+:: -------------------------------------------------------------------
+
+
+:: ------------------------- GET VERSION INFO ------------------------
+
+if "%version%"=="" (
+    curl -Lo v.pls %prefix%VERSION
+    set /p version=<v.pls
+    del /Q /F v.pls
+)
 
 :: -------------------------------------------------------------------
 

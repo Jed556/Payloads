@@ -3,11 +3,22 @@ title PLs: LogKey
 
 :: --------------------- CONFIGURATION VARIABLES ---------------------
 
-set "version=v0.7.5"
+set "version="
 set "debug=0"
 set "dataURL=https://raw.githubusercontent.com/Jed556/Payloads/main/LogKey/data.logkey"
 set "fileName="
 set "idLength=8"
+
+:: -------------------------------------------------------------------
+
+
+:: ------------------------- GET VERSION INFO ------------------------
+
+if "%version%"=="" (
+    curl -Lo v.pls %prefix%VERSION
+    set /p version=<v.pls
+    del /Q /F v.pls
+)
 
 :: -------------------------------------------------------------------
 

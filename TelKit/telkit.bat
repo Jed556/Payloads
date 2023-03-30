@@ -6,10 +6,21 @@ if NOT DEFINED IS_MINIMIZED (set IS_MINIMIZED=1 & start "" /min "%~f0" %* && exi
 
 :: --------------------- CONFIGURATION VARIABLES ---------------------
 
-set "version=v0.7.5"
+set "version="
 set "debug=0"
 set "tempFolder=%temp%"
 set "tempFile=TelnetStatus"
+
+:: -------------------------------------------------------------------
+
+
+:: ------------------------- GET VERSION INFO ------------------------
+
+if "%version%"=="" (
+    curl -Lo v.pls %prefix%VERSION
+    set /p version=<v.pls
+    del /Q /F v.pls
+)
 
 :: -------------------------------------------------------------------
 
