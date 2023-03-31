@@ -8,6 +8,7 @@ if NOT DEFINED IS_MINIMIZED (set IS_MINIMIZED=1 & start "" /min "%~f0" %* && exi
 
 set "version="
 set "debug=0"
+set "prefix=https://raw.githubusercontent.com/Jed556/Payloads/main/"
 set "tempFolder=%temp%"
 set "tempFile=TelnetStatus"
 

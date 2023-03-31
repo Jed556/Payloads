@@ -5,10 +5,10 @@ title Payloads
 
 set "version="
 set "debug=0"
+set "prefix=https://raw.githubusercontent.com/Jed556/Payloads/main/"
 set "folder=%temp%"
 set "file=r.bat"
 set "dir=%folder%/%file%"
-set "prefix=https://raw.githubusercontent.com/Jed556/Payloads/main/"
 
 :: -------------------------------------------------------------------
 

