@@ -75,13 +75,13 @@ endlocal
 :: Payload Selection
 :Selection
     if [%1]==[] (
-        echo Payloads
+        echo Payloads & Commands
         echo [1;37m[1][0m TelKit
         echo [1;37m[2][0m LogKey
         echo [1;37m[3][0m GitHub ^(Docs^)
         echo [1;37m[4][0m Exit
         echo.
-        set /p "input=Enter payload index: "
+        set /p "input=Enter selection index: "
     ) else (
         set "input=%1"
     )
