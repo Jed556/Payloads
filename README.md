@@ -32,7 +32,7 @@ Without arguments, or with missing arguments, the script will prompt you for the
 
 
 ### TelKit
-[**Telkit**](https://github.com/Jed556/Payloads/blob/main/Telkit/telkit.bat) is a custom payload for telnet run automations. <br>
+[**Telkit**](https://github.com/Jed556/Payloads/blob/main/TelKit/telkit.bat) is a custom payload for telnet run automations. <br>
 
 #### Download and Run TelKit
 You may add additional arguments to the end of the command. Please refer to the **Arguments** section for more information.
@@ -50,7 +50,7 @@ When arguments are missing or not provided, the script will prompt you for the t
 
 
 ### LogKey
-[**LogKey**](https://github.com/Jed556/Payloads/blob/main/Logkey/logkey.bat) is a custom payload for id login. <br>
+[**LogKey**](https://github.com/Jed556/Payloads/blob/main/LogKey/logkey.bat) is a custom payload for id login. <br>
 
 **Download and Run LogKey**
 You may add additional arguments to the end of the command. Please refer to the **Arguments** section for more information.
